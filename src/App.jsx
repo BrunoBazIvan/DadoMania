@@ -8,9 +8,6 @@ function App() {
     <>
     <NavBarr />
     <ItemListContainer
-    Categoria1={'Paquetes'}
-    Categoria2={'Dies caras'}
-    Categoria3={'Todos'}
     />
     </>
   )
