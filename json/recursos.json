@@ -1,48 +1,43 @@
 {
-   "productos" :{
-    
-   "dados" : [
+   "productos" :[
         {
-            "D1" : {
                 "category" : "dice",
                 "name" : "Mario Bros",
                 "price" : "749",
                 "img" :  "https://i.pinimg.com/564x/17/c4/b4/17c4b4f1c0c7f58ec343010b5b653633.jpg"  
-            }
         },
         {
-            "D2" : {
+           
                 "category" : "dice",
                 "name" : "Full Black",
                 "price" : "749",
                 "img" :  "https://i.pinimg.com/564x/09/3a/69/093a6905de919c6d50395ebb885c3b85.jpg"
-            }
+          
         },
         {
-            "D3" : {
+            
                 "category" : "dice",
                 "name" : "Moon Night",
                 "price" : "749",
                 "img" :  "https://i.pinimg.com/564x/7c/e2/87/7ce287796e5eada127fd6ca60f546a0a.jpg"
-            }
+
         },
         {
-            "D4" : {
+         
                 "category" : "dice",
                 "name" : "Lapislazuli",
                 "price" : "749",
                 "img" :  "https://i.pinimg.com/564x/52/6b/09/526b09b6a6dfc8150ba6957bd42d848e.jpg"
-            }
+
         },
         {
-            "D5" : {
+          
                 "category" : "dice",
                 "name" : "Game Over",
                 "price" : "749",
                 "img" :  "https://i.pinimg.com/564x/1a/af/95/1aaf95916f2c3120a95925f92b0962fd.jpg"
-            }
+
         }
-    ]
-    }
+]
 }
    

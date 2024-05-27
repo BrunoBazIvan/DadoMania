@@ -1,38 +1,31 @@
-import { CardText } from 'react-bootstrap';
+//importe todo lo nesesario 
 import './ItemListContainer.css';
 import React, { useEffect, useState } from 'react';
+import {ItemCard} from '../ItemCard'; // Importar el componente ItemCard
 
+// funcion de renderizado
+export function ItemListContainer() {
 
- export function ItemListContainer() {
-  const [productos, setProductos] = useState ([]);
+  // defino el useState para ayudarme a definir un estado del componente
+  const [productos, setProductos] = useState([]);
 
+  // Utlilizo para cambiar el estado del producto
   useEffect(() => {
-      fetch("")
+    fetch("../../json/recursos.json")
       .then(response => response.json())
-      .then(data => setProductos(data.productos.dados))
-      .catch(error => console.error("error fetching data:", error))
+      .then(data => setProductos(data.productos))
+      .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-    return (
-      <div className="App">
-        <h1>Lista de Productos</h1>
-        <ul>
-          {productos.map((producto, index) => {
-            const key = Object.keys(producto)[0]; // Obtiene la clave del producto, por ejemplo, 'D1'
-            const details = producto[key]; // Obtiene los detalles del producto usando la clave
-    
-            // Renderiza cada producto en un elemento <li>
-            return (
-              <li key={index}> {/* 'key' es una propiedad especial en React que ayuda a identificar elementos únicos */}
-                <h2>{details.name}</h2>
-                <p>Categoría: {details.category}</p>
-                <p>Precio: {details.price}</p>
-                <p>Fecha: {details.date}</p>
-                <img src={details.img} alt={details.name} width="100" />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
+  //renderizo el componente
+  return (
+    <div>
+      {
+        productos.length > 0 && 
+        productos.map((producto, index) => (
+          <ItemCard key={index} producto={producto} />
+        ))
+      }
+    </div>
+  );
 }
