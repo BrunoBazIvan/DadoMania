@@ -19,13 +19,17 @@ export function ItemListContainer() {
 
   //renderizo el componente
   return (
-    <div>
+    <>
+      <h1 className='d-flex justify-content-center mt-5'>Dado Mania</h1>
+      <div className='d-flex align-content-around flex-wrap container mt-5'>
       {
         productos.length > 0 && 
         productos.map((producto, index) => (
           <ItemCard key={index} producto={producto} />
         ))
       }
-    </div>
+      </div>
+
+    </>
   );
 }
