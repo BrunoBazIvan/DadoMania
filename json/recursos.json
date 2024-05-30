@@ -37,6 +37,38 @@
                 "price" : "749",
                 "img" :  "https://i.pinimg.com/564x/1a/af/95/1aaf95916f2c3120a95925f92b0962fd.jpg"
 
+        },
+        {
+          
+                "category" : "mini",
+                "name" : "Half-orc Barbarian",
+                "price" : "1299",
+                "img" :  "https://i.pinimg.com/564x/05/2b/f3/052bf3088339f47ade3883a4c42f251b.jpg"
+
+        },
+        {
+          
+                "category" : "mini",
+                "name" : "Human Wizard",
+                "price" : "1299",
+                "img" :  "https://i.pinimg.com/564x/26/d6/46/26d64600189441aca2ca2ec752478400.jpg"
+
+        },
+        {
+          
+                "category" : "mini",
+                "name" : "Human Archer",
+                "price" : "1299",
+                "img" :  "https://i.pinimg.com/564x/91/bf/75/91bf75ba32a7d98ead62dcf5920876c4.jpg"
+
+        },
+        {
+          
+                "category" : "mini",
+                "name" : "Dwarfs Barbarian",
+                "price" : "1299",
+                "img" :  "https://i.pinimg.com/564x/5c/34/8d/5c348d0993e01a9c4b0524cc65167639.jpg"
+
         }
 ]
 }
