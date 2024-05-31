@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
  export function ItemCard({ producto }) {
 
@@ -11,7 +13,8 @@ import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'react-boot
         <CardBody>
             <CardTitle>{producto.name}</CardTitle>
             <CardText>{producto.price}</CardText>
-            <Button variant="primary">Añadir al carrito</Button>
+            <Link to={`producto/${producto.id}`}><Button variant="primary">Ver Mas</Button></Link>
+           
         </CardBody>
         </Card>
     </div>
