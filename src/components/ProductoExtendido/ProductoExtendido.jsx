@@ -12,9 +12,11 @@ export const ProductoExtendido = () => {
       fetch("../../json/recursos.json")
         .then(response => response.json())
         .then(data => {
+             // Encuentra el producto por su ID
           const productoEncontrado = data.productos.find(p => p.id === id);
-          setProducto(productoEncontrado);
-        })
+          // Asigna el producto encontrado al estado
+          setProducto(productoEncontrado);}
+        )
         .catch(error => console.error('Error fetching data:', error));
     }, [id]);
 

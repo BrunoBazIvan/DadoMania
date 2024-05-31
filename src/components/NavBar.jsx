@@ -15,9 +15,9 @@ import { Link } from 'react-router-dom';
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                     <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Todos</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Dies caras</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Paquetes</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/" >Todos</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="category/dice">dados</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="category/mini">minis</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>
