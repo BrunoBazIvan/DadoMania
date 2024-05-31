@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-import  { NavBarr } from './components/NavBar'
+import  { NavBarr } from './components/NavBar/NavBar'
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ProductoExtendido } from './components/ProductoExtendido/ProductoExtendido';
