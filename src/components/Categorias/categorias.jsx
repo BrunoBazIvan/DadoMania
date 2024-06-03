@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import {ItemCard} from '../ItemCard'; // Importar el componente ItemCard
 import { useParams } from 'react-router-dom';
+import { PedirDatos } from '../PedirDatos';
 // funcion de renderizado
 export function Categorias() {
 

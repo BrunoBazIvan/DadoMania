@@ -82,18 +82,18 @@
                 "img": "https://i.pinimg.com/564x/35/cc/62/35cc62dfbc1f7cfc16629a70923e22bd.jpg"
             },
             {
-                "id": "human-archer",
+                "id": "pack-deocr",
                 "category": "dice-box",
-                "name": "Human Archer",
-                "price": "1299",
-                "img": "https://i.pinimg.com/564x/7b/74/df/7b74df01497837fb79865737fd3de989.jpg"
+                "name": "Decor Pack",
+                "price": "1759",
+                "img": "https://i.pinimg.com/564x/bd/bf/4c/bdbf4c97b49d4b7aa901310335cc4bc4.jpg"
             },
             {
-                "id": "human-archer",
-                "category": "dice-box",
-                "name": "Human Archer",
-                "price": "1299",
-                "img": "https://i.pinimg.com/564x/91/bf/75/91bf75ba32a7d98ead62dcf5920876c4.jpg"
+                "id": "treasure",
+                "category": "decor",
+                "name": "Tresure decor",
+                "price": "545",
+                "img": "https://i.pinimg.com/564x/d8/af/e4/d8afe4a4dd9db927f232005feea67f5b.jpg"
             }
         ]
     }

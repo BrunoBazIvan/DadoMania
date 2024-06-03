@@ -35,7 +35,7 @@ export const ProductoExtendido = () => {
                 </div>
                 <div>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In fugiat, iusto nemo, minima sapiente numquam ducimus dolorem dolores, culpa quisquam molestias accusantium recusandae atque? Quo neque modi ad qui velit?</p>
-                <Button variant='primary'>Comptar</Button>
+                <Button variant='primary'>Comprar</Button>
             </div>
             </div>
 
