@@ -36,7 +36,6 @@ export const ProductoExtendido = () => {
                     <Button variant='primary'>Comprar</Button>
                 </div>
             </div>
-            <div>Carusel similares</div>
         </div>
     );
 }

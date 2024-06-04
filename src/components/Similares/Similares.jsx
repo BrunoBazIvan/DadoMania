@@ -1,25 +1,31 @@
-import React from 'react';
-import { ItemCard } from '../ItemCard';
-import { PedirDatos } from '../PedirDatos';
-
-export function Similares({ category }) {
+import React from "react";
+import { useParams } from "react-router-dom";
+import { PedirDatos } from "../PedirDatos";
+import { ItemCard } from "../ItemCard";
+import "./Similares.css"
+export function Similares() {
+    const { id } = useParams();
     const productos = PedirDatos();
 
-    const productosFiltrados = category
-    ? productos.filter(producto => producto.category === category)
-    : productos;
+    // Obtener la categoría del producto actual
+    const productoActual = productos.find(producto => producto.id === id);
+    const categoriaActual = productoActual ? productoActual.category : null;
 
-    return(
-    <div>
-        <div className='d-flex align-content-around flex-wrap container mt-5'>
-                {
-                    productosFiltrados.length > 0 ? 
+    // Filtrar los productos para incluir solo aquellos de la misma categoría, pero excluyendo el producto actual
+    const productosFiltrados = productos.filter(producto => producto.category === categoriaActual && producto.id !== id);
+
+    return (
+        <div className="container mt-5">
+            <h3>Productos relacionados</h3>
+            <div className="similarProductsContainer mt-3 bg-light">
+                {productosFiltrados.length > 0 ? (
                     productosFiltrados.map((producto, index) => (
                         <ItemCard key={index} producto={producto} />
-                )) : 
-            <p>No hay productos en esta categoría</p>
-                }   
+                    ))
+                ) : (
+                    <p>No hay productos similares</p>
+                )}
+            </div>
         </div>
-    </div>
-    )
+    );
 }
