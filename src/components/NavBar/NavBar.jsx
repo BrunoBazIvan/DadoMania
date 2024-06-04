@@ -23,6 +23,7 @@ import "./NavBar.css"
               <NavDropdown.Item as={Link} to="/">Todos</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="category/dice">Dados</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="category/mini">Minis</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="category/decor">Decors</NavDropdown.Item>
             </DropdownButton>
           </div>
           <div className='me-5'>

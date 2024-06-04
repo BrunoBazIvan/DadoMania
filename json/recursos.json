@@ -67,23 +67,10 @@
                 "name": "Dwarfs Barbarian",
                 "price": "1299",
                 "img": "https://i.pinimg.com/564x/5c/34/8d/5c348d0993e01a9c4b0524cc65167639.jpg"
-            },            {
-                "id": "zelda-shield",
-                "category": "dice-box",
-                "name": "Zelda Shield",
-                "price": "1299",
-                "img": "https://i.pinimg.com/564x/24/c5/83/24c583b3809db092eb1e6068c9af0f3b.jpg"
-            },
-            {
-                "id": "classic",
-                "category": "dice-box",
-                "name": "Wooden Dice Box",
-                "price": "1299",
-                "img": "https://i.pinimg.com/564x/35/cc/62/35cc62dfbc1f7cfc16629a70923e22bd.jpg"
             },
             {
                 "id": "pack-deocr",
-                "category": "dice-box",
+                "category": "decor",
                 "name": "Decor Pack",
                 "price": "1759",
                 "img": "https://i.pinimg.com/564x/bd/bf/4c/bdbf4c97b49d4b7aa901310335cc4bc4.jpg"
