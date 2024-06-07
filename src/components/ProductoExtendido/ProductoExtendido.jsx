@@ -6,10 +6,10 @@ import { PedirDatos } from '../PedirDatos';
 
 
 export const ProductoExtendido = () => {
-
     const [productoEncontrado, setProductoEncotrado] = useState(null);
     const productos = PedirDatos();
     const { id } = useParams();
+    let carShop = [];
 
     useEffect(() => { 
         if (productos.length > 0) {
@@ -21,6 +21,11 @@ export const ProductoExtendido = () => {
     if (!productoEncontrado) {
         return <div>Cargando...</div>;
       }
+     
+      const PushearItemEncontrado = () => {
+        carShop.push(productoEncontrado);
+        console.log("holas", productoEncontrado);
+    }
 
     return (
         <div className='container mt-5'>
@@ -33,7 +38,7 @@ export const ProductoExtendido = () => {
                 </div>
                 <div>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In fugiat, iusto nemo, minima sapiente numquam ducimus dolorem dolores, culpa quisquam molestias accusantium recusandae atque? Quo neque modi ad qui velit?</p>
-                    <Button variant='primary'>Comprar</Button>
+                    <Button variant='primary' onClick={PushearItemEncontrado} >Comprar</Button>
                 </div>
             </div>
         </div>
