@@ -27,7 +27,7 @@ import "./NavBar.css"
             </DropdownButton>
           </div>
           <div className='me-5'>
-            <Carrito />
+            <Carrito/>
           </div>
         </Navbar>
       );

@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { PedirDatos } from "../PedirDatos";
-import { ItemCard } from "../ItemCard";
+import { ItemCard } from "../ItemCard/ItemCard";
 import "./Similares.css"
 export function Similares() {
     const { id } = useParams();

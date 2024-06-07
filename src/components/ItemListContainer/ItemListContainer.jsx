@@ -1,7 +1,7 @@
 //importe todo lo nesesario 
 import './ItemListContainer.css';
 import React, { useEffect, useState } from 'react';
-import {ItemCard} from '../ItemCard'; // Importar el componente ItemCard
+import {ItemCard} from '../ItemCard/ItemCard'; // Importar el componente ItemCard
 import "./ItemListContainer.css"
 import { PedirDatos } from '../PedirDatos';
 // funcion de renderizado
