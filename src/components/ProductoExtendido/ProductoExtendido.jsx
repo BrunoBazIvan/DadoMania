@@ -24,8 +24,17 @@ export const ProductoExtendido = () => {
         return <div>Cargando...</div>;
     }
      
-    const PushearItemEncontrado = () => {
-        carShop.push(productoEncontrado);
+    const handleAgregar = () => {
+        const itemAgregado = { ...productoEncontrado }
+        const estaEnCarrito = carrito.find((productoEncontrado)=> productoEncontrado.id === itemAgregado.id)
+
+        if(estaEnCarrito){
+            console.log('esta en el carrito bro')
+        }else{
+            console.log('no esta bro')
+        }
+
+        setCarrito(prevCarrito => ([...prevCarrito, itemAgregado]));
     }
 
     
@@ -39,8 +48,13 @@ export const ProductoExtendido = () => {
                     <CardText>{productoEncontrado.description}</CardText>
                 </div>
                 <div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In fugiat, iusto nemo, minima sapiente numquam ducimus dolorem dolores, culpa quisquam molestias accusantium recusandae atque? Quo neque modi ad qui velit?</p>
-                    <Button variant='primary' onClick={PushearItemEncontrado}>Comprar</Button>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe modi molestias autem similique architecto eaque ratione. Modi omnis itaque recusandae, vero deserunt hic, iure sint quidem quia consequatur dicta.</p>
+                    <div className='d-flex mb-3 mt-3'>
+                        <Button >-</Button>
+                        <p>numerito</p>
+                        <Button>+</Button>
+                    </div>
+                    <Button variant='primary' onClick={handleAgregar}>Comprar</Button>
                 </div>
             </div>
         </div>
