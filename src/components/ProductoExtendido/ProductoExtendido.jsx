@@ -1,15 +1,17 @@
 import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'react-bootstrap';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import "./ProductoExtendido.css"
 import { PedirDatos } from '../PedirDatos';
+import { CarritoContext } from '../../Context/CarritoContext';
 
 
 export const ProductoExtendido = () => {
+    const { id } = useParams();
     const [productoEncontrado, setProductoEncotrado] = useState(null);
     const productos = PedirDatos();
-    const { id } = useParams();
-    let carShop = [];
+    const {carrito, setCarrito} = useContext(CarritoContext)
+    console.log (carrito)
 
     useEffect(() => { 
         if (productos.length > 0) {
@@ -20,13 +22,13 @@ export const ProductoExtendido = () => {
 
     if (!productoEncontrado) {
         return <div>Cargando...</div>;
-      }
+    }
      
-      const PushearItemEncontrado = () => {
+    const PushearItemEncontrado = () => {
         carShop.push(productoEncontrado);
-        console.log("holas", productoEncontrado);
     }
 
+    
     return (
         <div className='container mt-5'>
             <div className='d-flex descripton'>
@@ -38,7 +40,7 @@ export const ProductoExtendido = () => {
                 </div>
                 <div>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In fugiat, iusto nemo, minima sapiente numquam ducimus dolorem dolores, culpa quisquam molestias accusantium recusandae atque? Quo neque modi ad qui velit?</p>
-                    <Button variant='primary' onClick={PushearItemEncontrado} >Comprar</Button>
+                    <Button variant='primary' onClick={PushearItemEncontrado}>Comprar</Button>
                 </div>
             </div>
         </div>
