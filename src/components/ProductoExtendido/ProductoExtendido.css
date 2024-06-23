@@ -9,3 +9,11 @@
     font-size: 4rem;
     font-family: "Montserrat", sans-serif
 }
+
+.numerCantidad{
+    height: auto;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    font-size: xx-large;
+}

@@ -4,7 +4,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import SplitButton from 'react-bootstrap/SplitButton';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import {Carrito} from "../Carrito/Carrito"
+import {Carrito} from "../CartWidget/Carrito"
 import { Link } from 'react-router-dom';
 import "./NavBar.css"
 

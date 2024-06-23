@@ -11,9 +11,28 @@ import { useState } from 'react';
 
 function App() {
 const [carrito , setCarrito] = useState([]);
+const agregarAlCarrito = (item, cantidad) => {
+  const itemAgregado = { ...item, cantidad }
+  const nuevoCarrito = [...carrito ];
+  const index = nuevoCarrito.findIndex((productoEncontrado) => productoEncontrado.id === itemAgregado.id);
 
+    if (index !== -1) {
+      nuevoCarrito[index].cantidad += cantidad;
+    } else {
+      nuevoCarrito.push(itemAgregado);
+    }
+    setCarrito(nuevoCarrito); // Actualiza el estado del carrito con la estructura correcta
+  };
+
+  const cantidadCarrito = () => {
+    return carrito.reduce((acc, item) => acc + item.cantidad, 0); // Calculo de cantidad total
+  };
+
+  const totalCarrito = () =>{
+    return carrito.reduce((acc, item)=> acc + item.price * item.cantidad, 0 )
+  }
   return (
-    <CarritoContext.Provider value={{carrito, setCarrito}}>
+    <CarritoContext.Provider value={{carrito, agregarAlCarrito, cantidadCarrito, totalCarrito}}>
       <BrowserRouter>
         <NavBarr />
         <Routes>

@@ -8,53 +8,49 @@ import { CarritoContext } from '../../Context/CarritoContext';
 
 export const ProductoExtendido = () => {
     const { id } = useParams();
-    const [productoEncontrado, setProductoEncotrado] = useState(null);
+    const [item, setItem] = useState(null);
     const productos = PedirDatos();
-    const {carrito, setCarrito} = useContext(CarritoContext)
+    const {carrito, agregarAlCarrito} = useContext(CarritoContext)
     console.log (carrito)
+    const [cantidad, setCantidad] = useState(0)
 
     useEffect(() => { 
         if (productos.length > 0) {
             const producto = productos.find(p => p.id === id);
-            setProductoEncotrado(producto);
+            setItem(producto);
         }
     }, [id, productos]);
 
-    if (!productoEncontrado) {
+    if (!item) {
         return <div>Cargando...</div>;
     }
-     
-    const handleAgregar = () => {
-        const itemAgregado = { ...productoEncontrado }
-        const estaEnCarrito = carrito.find((productoEncontrado)=> productoEncontrado.id === itemAgregado.id)
-
-        if(estaEnCarrito){
-            console.log('esta en el carrito bro')
-        }else{
-            console.log('no esta bro')
+       
+    const sumar = () =>{
+        setCantidad(cantidad + 1)
+    } 
+    const restar = () => {
+        if(cantidad > 0){
+            setCantidad(cantidad - 1) 
         }
+    } 
 
-        setCarrito(prevCarrito => ([...prevCarrito, itemAgregado]));
-    }
-
-    
     return (
         <div className='container mt-5'>
             <div className='d-flex descripton'>
-                <CardImg src={productoEncontrado.img} className='img-fluid w-50' />
+                <CardImg src={item.img} className='img-fluid w-50' />
                 <div className="container">
-                    <h2>{productoEncontrado.name}</h2>
-                    <span className="price">${productoEncontrado.price}</span>
-                    <CardText>{productoEncontrado.description}</CardText>
+                    <h2>{item.name}</h2>
+                    <span className="price">${item.price}</span>
+                    <CardText>{item.description}</CardText>
                 </div>
                 <div>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe modi molestias autem similique architecto eaque ratione. Modi omnis itaque recusandae, vero deserunt hic, iure sint quidem quia consequatur dicta.</p>
-                    <div className='d-flex mb-3 mt-3'>
-                        <Button >-</Button>
-                        <p>numerito</p>
-                        <Button>+</Button>
+                    <div className='d-flex mb-3 mt-3 '>
+                        <Button onClick={restar}>-</Button>
+                        <div className='numerCantidad'>{cantidad}</div>
+                        <Button onClick={sumar}>+</Button>
                     </div>
-                    <Button variant='primary' onClick={handleAgregar}>Comprar</Button>
+                    <Button variant='primary' onClick={() => {agregarAlCarrito(item, cantidad)}}>Comprar</Button>
                 </div>
             </div>
         </div>

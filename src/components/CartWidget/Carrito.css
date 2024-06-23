@@ -1,4 +1,4 @@
-.carrito-number {
+.carritoNumber {
     background-color: red;
     color: white;
     border-radius: 50%;
@@ -11,4 +11,8 @@
     position: absolute; 
     top: 5px;             
     right: 40px;           
+}
+
+.imgCarrito{
+    width: 5rem;
 }
