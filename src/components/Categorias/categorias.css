@@ -1,9 +1,3 @@
-.logo{
-    text-decoration: none;
-    font-size:xx-large;
-    color: #fff;
-}
-
 .loader-container {
     display: flex; /* Utiliza flexbox para centrar */
     justify-content: center; /* Centra horizontalmente */

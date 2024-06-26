@@ -1,19 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { PedirDatos } from "../PedirDatos";
 import { ItemCard } from "../ItemCard/ItemCard";
-import "./Similares.css"
+import "./Similares.css";
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase/config';
+
 export function Similares() {
-    const { id } = useParams();
-    const productos = PedirDatos();
+    const { id } = useParams(); // Obtiene el ID del producto desde la URL
+    const [productos, setProductos] = useState([]); // Estado para almacenar los productos obtenidos de Firestore
+    const [categoriaActual, setCategoriaActual] = useState(null); // Estado para almacenar la categoría del producto actual
+    const [productosFiltrados, setProductosFiltrados] = useState([]); // Estado para almacenar los productos filtrados
 
-    // Obtener la categoría del producto actual
-    const productoActual = productos.find(producto => producto.id === id);
-    const categoriaActual = productoActual ? productoActual.category : null;
+    useEffect(() => {
+        const productosRef = collection(db, 'productos'); // Referencia a la colección "productos" en Firestore
+        getDocs(productosRef).then((resp) => {
+            const productos = resp.docs.map(doc => ({ id: doc.id, ...doc.data() })); // Mapea los documentos a objetos con `id` y datos
+            setProductos(productos); // Establece los productos en el estado
 
-    // Filtrar los productos para incluir solo aquellos de la misma categoría, pero excluyendo el producto actual
-    const productosFiltrados = productos.filter(producto => producto.category === categoriaActual && producto.id !== id);
+            const productoActual = productos.find(producto => producto.id === id); // Encuentra el producto actual por ID
+            if (productoActual) {
+                setCategoriaActual(productoActual.category); // Establece la categoría del producto actual en el estado
+            }
+        });
+    }, [id]); // Ejecuta el efecto cuando el ID cambia
 
+    useEffect(() => {
+        if (categoriaActual) { // Si la categoría del producto actual está establecida
+            const productosFiltrados = productos.filter(producto => producto.category === categoriaActual && producto.id !== id); // Filtra los productos de la misma categoría, excluyendo el producto actual
+            setProductosFiltrados(productosFiltrados); // Establece los productos filtrados en el estado
+        }
+    }, [categoriaActual, productos, id]); // Ejecuta el efecto cuando la categoría actual, los productos o el ID cambian
+    
     return (
         <div className="container mt-5">
             <h3>Productos relacionados</h3>

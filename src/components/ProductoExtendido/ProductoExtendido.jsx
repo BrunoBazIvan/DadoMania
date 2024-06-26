@@ -4,7 +4,8 @@ import { Form, useParams } from 'react-router-dom';
 import "./ProductoExtendido.css"
 import { PedirDatos } from '../PedirDatos';
 import { CarritoContext } from '../../Context/CarritoContext';
-
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase/config'
 
 export const ProductoExtendido = () => {
     const { id } = useParams();
@@ -14,12 +15,16 @@ export const ProductoExtendido = () => {
     console.log (carrito)
     const [cantidad, setCantidad] = useState(1);
 
-    useEffect(() => { 
-        if (productos.length > 0) {
-            const producto = productos.find(p => p.id === id);
-            setItem(producto);
-        }
-    }, [id, productos]);
+    useEffect(() => {
+        const productosRef = collection(db, 'productos');
+        getDocs(productosRef).then((resp) => {
+          const productos = resp.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          const productoEncontrado = productos.find(p => p.id === id);
+          if (productoEncontrado) {
+            setItem(productoEncontrado);
+          }
+        });
+      }, [id]);
 
     useEffect(()=>{
         if (item && id !== item.id){
@@ -28,7 +33,11 @@ export const ProductoExtendido = () => {
     },[id, item])
 
     if (!item) {
-        return <div>Cargando...</div>;
+        return <div className="loader-container">
+        <svg viewBox="25 25 50 50">
+            <circle r="20" cy="50" cx="50"></circle>
+        </svg>
+    </div>;
     }
 
 //funcion resetear Cantidad
