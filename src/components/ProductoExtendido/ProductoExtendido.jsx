@@ -1,6 +1,6 @@
 import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'react-bootstrap';
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Form, useParams } from 'react-router-dom';
 import "./ProductoExtendido.css"
 import { PedirDatos } from '../PedirDatos';
 import { CarritoContext } from '../../Context/CarritoContext';
@@ -12,7 +12,7 @@ export const ProductoExtendido = () => {
     const productos = PedirDatos();
     const {carrito, agregarAlCarrito} = useContext(CarritoContext)
     console.log (carrito)
-    const [cantidad, setCantidad] = useState(0)
+    const [cantidad, setCantidad] = useState(1);
 
     useEffect(() => { 
         if (productos.length > 0) {
@@ -21,15 +21,27 @@ export const ProductoExtendido = () => {
         }
     }, [id, productos]);
 
+    useEffect(()=>{
+        if (item && id !== item.id){
+            resetCantidad()
+        }
+    },[id, item])
+
     if (!item) {
         return <div>Cargando...</div>;
     }
-       
+
+//funcion resetear Cantidad
+    const resetCantidad =()=>{
+        setCantidad(cantidad - cantidad + 1)
+    }  
+// Suma 1 a la cantidad del producto
     const sumar = () =>{
         setCantidad(cantidad + 1)
     } 
+// Resta 1 a la cantidad de producto
     const restar = () => {
-        if(cantidad > 0){
+        if(cantidad > 1){
             setCantidad(cantidad - 1) 
         }
     } 
@@ -50,7 +62,7 @@ export const ProductoExtendido = () => {
                         <div className='numerCantidad'>{cantidad}</div>
                         <Button onClick={sumar}>+</Button>
                     </div>
-                    <Button variant='primary' onClick={() => {agregarAlCarrito(item, cantidad)}}>Comprar</Button>
+                    <Button variant='primary' onClick={() => {agregarAlCarrito(item, cantidad), resetCantidad() }}>Comprar</Button>
                 </div>
             </div>
         </div>

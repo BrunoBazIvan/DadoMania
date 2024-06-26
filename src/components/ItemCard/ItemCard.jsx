@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-
  export function ItemCard({ producto }) {
 
 
@@ -13,7 +12,7 @@ import { Link } from 'react-router-dom';
         <CardBody>
             <CardTitle>{producto.name}</CardTitle>
             <CardText>{producto.price}</CardText>
-            <Link to={`/producto/${producto.id}`}><Button variant="primary">Ver Mas</Button></Link>
+            <Link to={`/producto/${producto.id}`}><Button variant="primary" >Ver Mas</Button></Link>
         </CardBody>
         </Card>
     </div>
