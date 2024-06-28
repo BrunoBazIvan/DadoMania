@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ItemCard } from "../ItemCard/ItemCard";
+import { ItemCard } from "../ItemList/ItemList";
 import "./Similares.css";
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';

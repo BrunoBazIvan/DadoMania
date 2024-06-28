@@ -6,7 +6,7 @@ import { CarritoContext } from '../../Context/CarritoContext';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config'
 
-export const ProductoExtendido = () => {
+export const ItemDitail = () => {
     const { id } = useParams();
     const [item, setItem] = useState(null);
     const {carrito, agregarAlCarrito} = useContext(CarritoContext)

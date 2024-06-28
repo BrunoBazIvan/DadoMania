@@ -3,7 +3,7 @@ import './App.css'
 import { NavBarr } from './components/NavBar/NavBar'
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ProductoExtendido } from './components/ProductoExtendido/ProductoExtendido';
+import { ItemDitail } from './components/ItemDitail/ItemDitail'
 import { Compra } from './components/Checkout/Compra';
 import { Categorias } from './components/Categorias/categorias';
 import { Similares } from './components/Similares/Similares';
@@ -54,7 +54,7 @@ const agregarAlCarrito = (item, cantidad) => {
 function ProductoSimilaresContainer() {
   return (
     <div>
-      <ProductoExtendido />
+      <ItemDitail />
       <Similares />
     </div>
   );
