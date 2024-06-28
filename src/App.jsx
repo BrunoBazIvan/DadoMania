@@ -4,6 +4,7 @@ import { NavBarr } from './components/NavBar/NavBar'
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ProductoExtendido } from './components/ProductoExtendido/ProductoExtendido';
+import { Compra } from './components/Checkout/Compra';
 import { Categorias } from './components/Categorias/categorias';
 import { Similares } from './components/Similares/Similares';
 import {CarritoContext} from './Context/CarritoContext'
@@ -31,14 +32,19 @@ const agregarAlCarrito = (item, cantidad) => {
   const totalCarrito = () =>{
     return carrito.reduce((acc, item)=> acc + item.price * item.cantidad, 0 )
   }
+
+  const vaciarCarrito = ()=>{
+    return setCarrito([])
+  }
   return (
-    <CarritoContext.Provider value={{carrito, agregarAlCarrito, cantidadCarrito, totalCarrito}}>
+    <CarritoContext.Provider value={{carrito, agregarAlCarrito, cantidadCarrito, totalCarrito, vaciarCarrito}}>
       <BrowserRouter>
         <NavBarr />
         <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/producto/:id" element={<ProductoSimilaresContainer />} />
-          <Route path="/category/:category" element={<Categorias />} />
+          <Route path="/" element = {<ItemListContainer />} />
+          <Route path="/producto/:id" element = {<ProductoSimilaresContainer />} />
+          <Route path="/category/:category" element = {<Categorias />} />
+          <Route path="/tucompra" element = {<Compra />}/>
         </Routes>
       </BrowserRouter>
     </CarritoContext.Provider>

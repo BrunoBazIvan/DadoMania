@@ -2,7 +2,6 @@ import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'react-boot
 import React, { useContext, useEffect, useState } from 'react';
 import { Form, useParams } from 'react-router-dom';
 import "./ProductoExtendido.css"
-import { PedirDatos } from '../PedirDatos';
 import { CarritoContext } from '../../Context/CarritoContext';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config'
@@ -10,7 +9,6 @@ import { db } from '../../firebase/config'
 export const ProductoExtendido = () => {
     const { id } = useParams();
     const [item, setItem] = useState(null);
-    const productos = PedirDatos();
     const {carrito, agregarAlCarrito} = useContext(CarritoContext)
     console.log (carrito)
     const [cantidad, setCantidad] = useState(1);

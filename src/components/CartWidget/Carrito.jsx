@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { CarritoContext } from '../../Context/CarritoContext';
 import "./Carrito.css"
+import { Link } from 'react-router-dom';
 
 export function Carrito() {
   const [show, setShow] = useState(false);
@@ -41,9 +42,11 @@ export function Carrito() {
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
+        <Link rel="stylesheet" to="/tucompra">
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Link>
       </Modal.Footer>
     </Modal>
   </>
